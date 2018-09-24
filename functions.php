@@ -17,6 +17,6 @@ add_action('wp_enqueue_scripts', 'bellashop_enqueue_styles');
 
 require_once get_stylesheet_directory().'/inc/bellashop_nav_menu_walker.php';
 
-add_action('init', 'replace_storefront_header_container_hook');
+add_action('init', 'replace_storefront_header_hooks');
 
 // add_action('bellashop_before_header', 'bellashop_topbar');

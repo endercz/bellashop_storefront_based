@@ -47,3 +47,53 @@ if (!function_exists('bellashop_topbar')) {
     <?php
     }
 }
+
+if (!function_exists('bellashop_primary_navigation')) {
+    /**
+     * Display Primary Navigation.
+     *
+     * @since  1.0.0
+     */
+    function bellashop_primary_navigation()
+    {
+        ?>
+		<nav id="site-navigation" class="main-navigation site-menu" role="navigation" aria-label="<?php esc_html_e('Primary Navigation', 'storefront'); ?>">
+		<button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_attr(apply_filters('storefront_menu_toggle_text', __('Menu', 'storefront'))); ?></span></button>
+			<?php
+            wp_nav_menu(
+                array(
+                    'theme_location' => 'primary',
+                    'container_class' => 'primary-navigation',
+                    )
+            );
+
+        wp_nav_menu(
+                array(
+                    'theme_location' => 'handheld',
+                    'container_class' => 'handheld-navigation',
+                    )
+            ); ?>
+		</nav><!-- #site-navigation -->
+		<?php
+    }
+}
+
+if (!function_exists('bellashop_site_branding')) {
+    /**
+     * Site branding wrapper and display.
+     *
+     * @since  1.0.0
+     */
+    function bellashop_site_branding()
+    {
+        ?>
+        <div class="site-branding">
+            <div class="inner">
+            <!-- Off-Canvas Toggle (#shop-categories)--><a class="offcanvas-toggle cats-toggle" href="#shop-categories" data-toggle="offcanvas"></a>
+            <!-- Off-Canvas Toggle (#mobile-menu)--><a class="offcanvas-toggle menu-toggle" href="#mobile-menu" data-toggle="offcanvas"></a>
+            <!-- Site Logo--><a class="site-logo" href="index.html"><img src="<?php bloginfo('stylesheet_url'); ?>/../img/logo/logo.png" alt="Unishop"></a>
+            </div>
+        </div>
+		<?php
+    }
+}
